@@ -7,9 +7,11 @@ function setTitulo() {
 function setPrecio() {
     const peliculaPrecio = 50
     console.log(peliculaPrecio)
-    peliculaPrecio = 60 //unable to change
+    // peliculaPrecio = 60 //unable to change
 }
 setTitulo();
 setPrecio();
 console.log(peliculaTitulo)//global scope
-console.log(peliculaTitulo)
+console.log(peliculaPrecio)
+
+
