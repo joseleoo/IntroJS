@@ -132,3 +132,61 @@ console.log(`el precio es: ${peliculaPrecio} `);
 
 ### **Final Recommendation**
 Use **backticks and template literals** for modern JavaScript development. They're cleaner, more flexible, and easier to debug. 🚀
+
+/*
+Arrow Functions in JavaScript
+=============================
+
+Arrow functions, introduced in ES6, provide a more concise syntax for writing functions. They are particularly useful for creating shorter functions and for improving the readability of your code. Below is an example of how an arrow function can be used.
+*/
+
+// Declare a variable with a value
+let peliculaPrecio = 70;
+
+// Define an arrow function
+const mostrarPrecio = () => console.log(`el precio es: ${peliculaPrecio} `);
+
+// Call the arrow function
+mostrarPrecio();
+
+/*
+Explanation
+-----------
+1. **Declaration**:
+   - The variable `peliculaPrecio` is declared globally with a value of 70.
+
+2. **Arrow Function Syntax**:
+   - `const mostrarPrecio = () => { ... }`:
+     - The `()` represents the parameter list (empty here since no arguments are passed).
+     - The `=>` indicates the arrow function.
+     - The `console.log` statement is the body of the function.
+   - Since the body contains only one statement, curly braces `{}` and the `return` keyword are omitted.
+
+3. **Template Literals**:
+   - The function uses a template literal (backticks ``) to interpolate the value of `peliculaPrecio` directly into the string.
+
+4. **Calling the Function**:
+   - The function is invoked using `mostrarPrecio()`, which outputs the string to the console.
+
+Advantages of Arrow Functions
+-----------------------------
+1. **Concise Syntax**:
+   - Arrow functions require fewer lines of code compared to traditional function expressions.
+
+2. **No `this` Binding**:
+   - Arrow functions do not have their own `this`. Instead, they inherit `this` from the surrounding lexical scope.
+
+3. **Improved Readability**:
+   - For simple operations, arrow functions can make the code cleaner and easier to understand.
+
+Use Cases
+---------
+- Short callback functions.
+- Inline functions in array methods like `map`, `filter`, or `reduce`.
+- Situations where lexical scoping of `this` is desired.
+
+Example Output
+--------------
+When you run the code, the following output is displayed in the console:
+```plaintext
+el precio es: 70 
