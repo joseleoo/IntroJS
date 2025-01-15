@@ -190,3 +190,116 @@ Example Output
 When you run the code, the following output is displayed in the console:
 ```plaintext
 el precio es: 70 
+
+### 🗺️ **Understanding the `map` Function with Your Code** 🌟
+
+---
+
+### **Code Breakdown**
+Here's your code:
+
+```javascript
+let peliculas = [
+    { idPelicula: 1, titulo: "Avatar" },
+    { idPelicula: 2, titulo: "Terminator 2" },
+    { idPelicula: 3, titulo: "Silent Hill" },
+];
+
+const mostrarTodas = (peliculas) => {
+    peliculas.map((p) => console.log(p.idPelicula, p.titulo));
+};
+
+mostrarTodas(peliculas);
+```
+
+---
+
+### 🟦 **What is `map`?**
+- The `map` function is a **higher-order function** in JavaScript that is used to **iterate over an array**.
+- It creates a **new array** by applying a callback function to each element of the original array.
+- Key points:
+  - It **does not mutate** the original array.
+  - It is typically used to **transform or format** array data.
+
+---
+
+### 🟩 **What Happens in Your Code?**
+1. **Array `peliculas`**:
+   - This is an array of objects, where each object represents a movie with two properties: `idPelicula` and `titulo`.
+   - Example:
+     ```plaintext
+     [
+         { idPelicula: 1, titulo: "Avatar" },
+         { idPelicula: 2, titulo: "Terminator 2" },
+         { idPelicula: 3, titulo: "Silent Hill" }
+     ]
+     ```
+
+2. **Function `mostrarTodas`**:
+   - Takes the `peliculas` array as an argument.
+   - Uses the `map` function to **iterate over each movie**.
+   - The callback function `(p) => console.log(p.idPelicula, p.titulo)`:
+     - `p` represents each movie object in the array.
+     - Logs the `idPelicula` and `titulo` of each movie.
+
+3. **Result**:
+   - When `mostrarTodas(peliculas)` is called, the following is logged:
+     ```plaintext
+     1 Avatar
+     2 Terminator 2
+     3 Silent Hill
+     ```
+
+---
+
+### 🟨 **When to Use `map`?**
+- **Transform Data**: Use `map` when you need to create a new array based on some transformation of the original array.
+- **Iterate with Side Effects**: While your example works, using `map` **just to log values** is not ideal. For logging or side effects, use `forEach` instead.
+
+---
+
+### 🟥 **Why is `map` Not Ideal Here?**
+- The purpose of `map` is to **return a new array**, but in this code, the `map` result is not stored or used.
+- **Better Alternative**: Use `forEach` for side effects like logging:
+  ```javascript
+  peliculas.forEach((p) => console.log(p.idPelicula, p.titulo));
+  ```
+
+---
+
+### 🎨 **Enhanced Visualization** 🌈
+Here’s the process illustrated step by step:
+
+1️⃣ **Original Array**:
+```javascript
+[
+    { idPelicula: 1, titulo: "Avatar" },
+    { idPelicula: 2, titulo: "Terminator 2" },
+    { idPelicula: 3, titulo: "Silent Hill" }
+]
+```
+
+2️⃣ **Using `map`**:
+- Iterates over each element (`p`):
+  - First Iteration: `p = { idPelicula: 1, titulo: "Avatar" }`
+  - Second Iteration: `p = { idPelicula: 2, titulo: "Terminator 2" }`
+  - Third Iteration: `p = { idPelicula: 3, titulo: "Silent Hill" }`
+
+3️⃣ **Console Output**:
+```plaintext
+1 Avatar
+2 Terminator 2
+3 Silent Hill
+```
+
+---
+
+### ✅ **Key Takeaways**
+- **Use `map`** when you need to transform an array and use or return the resulting array.
+- For logging or other side effects, **use `forEach`**.
+- Example with `map` for transformation:
+  ```javascript
+  const titulos = peliculas.map((p) => p.titulo);
+  console.log(titulos); // ["Avatar", "Terminator 2", "Silent Hill"]
+  ```
+

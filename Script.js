@@ -1,11 +1,10 @@
-/*function mostrarPrecio() {
+let peliculas = [
+    { idPelicula: 1, titulo: "Avatar" },
+    { idPelicula: 2, titulo: "Terminator 2" },
+    { idPelicula: 3, titulo: "Silent Hill" },
+]
 
-    let peliculaPrecio = 65;
-    console.log("El precio es: " + peliculaPrecio)
-    console.log(`el precio es: ${peliculaPrecio} `)
-
+const mostrarTodas = (peliculas) => {
+    peliculas.map((p) => console.log(p.idPelicula, p.titulo))
 }
-mostrarPrecio()*/
-let peliculaPrecio = 70
-const mostrarPrecio = () => console.log(`el precio es: ${peliculaPrecio} `)
-mostrarPrecio()
+mostrarTodas(peliculas)
