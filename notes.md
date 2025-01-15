@@ -1,7 +1,3 @@
-Here's an explanation of your code with **colors** and **emojis** for clarity: 🌟
-
----
-
 ### 🟦 **Global Scope**  
 - `let peliculaTitulo = "avengers"`: 🌍 This variable is declared **outside any function**, so it belongs to the **global scope**. It can be accessed and modified anywhere in the script, except when shadowed.
 - `const peliculaPrecio = 20`: 🌍 This constant is also in the **global scope**, but since it's a `const`, its value **cannot be changed** after its declaration.
@@ -63,3 +59,76 @@ Terminator 2
 avengers
 20
 ```
+### 🛠️ **Concatenation Explanation with Backticks (`Template Literals`)**
+
+In your function `mostrarPrecio`, two different methods are used to concatenate strings with a variable. Let's break it down! 😊
+
+---
+
+### **Method 1: Using the `+` Operator**  
+```javascript
+console.log("El precio es: " + peliculaPrecio);
+```
+
+- In this case:
+  - The **`+` operator** is used to combine the string `"El precio es: "` with the value of the variable `peliculaPrecio`.
+  - If `peliculaPrecio` contains `65`, the output will be:
+    ```plaintext
+    El precio es: 65
+    ```
+
+- **Limitation**: This method can become **hard to read** and **error-prone** when combining multiple variables or creating multi-line strings.
+
+---
+
+### **Method 2: Using Backticks and Template Literals**  
+```javascript
+console.log(`el precio es: ${peliculaPrecio} `);
+```
+
+- **Backticks (` `` `)**:
+  - These allow you to use **template literals**, making string concatenation easier and more readable.
+  - Variables or expressions are inserted directly into the string using `${}`. This is known as **interpolation**.
+
+- In this example:
+  - The **template literal** directly embeds the value of `peliculaPrecio` inside the string.
+  - If `peliculaPrecio` contains `65`, the output will be:
+    ```plaintext
+    el precio es: 65
+    ```
+
+- **Advantages**:
+  - Easier to read and maintain, especially for multi-line strings or when using many variables.
+  - Supports advanced expressions directly inside the `${}`, like calculations or function calls.
+
+---
+
+### **Why Use Template Literals?**  
+
+- ✅ **More Readable**: No need to manually add `+` for variables.
+- ✅ **Supports Multi-line Strings**:
+  ```javascript
+  console.log(`El precio
+  es:
+  ${peliculaPrecio}`);
+  ```
+  Output:
+  ```plaintext
+  El precio
+  es:
+  65
+  ```
+
+- ✅ **Dynamic and Powerful**: Use expressions directly.
+  ```javascript
+  console.log(`El precio con descuento es: ${peliculaPrecio - 10}`);
+  ```
+  Output:
+  ```plaintext
+  El precio con descuento es: 55
+  ```
+
+---
+
+### **Final Recommendation**
+Use **backticks and template literals** for modern JavaScript development. They're cleaner, more flexible, and easier to debug. 🚀
