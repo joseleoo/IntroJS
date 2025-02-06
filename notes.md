@@ -331,3 +331,33 @@ const agregarPelicula = () => {
 };
 
 agregarPelicula();
+# 🌐 Método `fetch()` en JavaScript
+
+El método **`fetch()`** en JavaScript se usa para realizar **solicitudes HTTP** y obtener datos de servidores de manera asíncrona. Es una alternativa moderna a `XMLHttpRequest` y permite interactuar con **APIs** de manera sencilla.
+
+---
+
+## 📝 Explicación como profesor:
+Imagina que quieres obtener una lista de películas desde un servidor. Antes de `fetch()`, necesitábamos código más complejo para hacer esto. Con `fetch()`, podemos **solicitar datos** de una API y procesarlos de manera eficiente usando **promesas (`.then()`) o `async/await`**.
+
+---
+
+## 🔍 Ejemplo en código:
+```javascript
+// URL de una API que devuelve una lista de películas en formato JSON
+const url = "https://api.example.com/peliculas";
+
+// Función para obtener las películas usando fetch()
+const obtenerPeliculas = async () => {
+    try {
+        const respuesta = await fetch(url); // Realiza la solicitud HTTP
+        if (!respuesta.ok) throw new Error("Error en la solicitud"); // Manejo de errores
+
+        const peliculas = await respuesta.json(); // Convierte la respuesta a JSON
+        console.log("Lista de películas:", peliculas);
+    } catch (error) {
+        console.error("Hubo un problema al obtener las películas:", error);
+    }
+};
+
+obtenerPeliculas();
