@@ -303,3 +303,31 @@ Here’s the process illustrated step by step:
   console.log(titulos); // ["Avatar", "Terminator 2", "Silent Hill"]
   ```
 
+# 📚 Operador Spread en JavaScript
+
+El **operador spread (`...`)** en JavaScript se usa para expandir elementos de un iterable (como un array u objeto) en lugares donde se esperan múltiples elementos. Su principal función es **copiar, combinar o clonar estructuras de datos de forma inmutable**, lo que es útil en la programación funcional y en la manipulación eficiente de datos.
+
+---
+
+## 📝 Explicación como profesor:
+Imagina que tienes una lista de películas y quieres agregar una nueva sin modificar la lista original. Si modificaras la lista directamente, podrías generar problemas inesperados en el código. En su lugar, el operador spread (`...`) nos permite **crear un nuevo array** combinando los elementos del array original con la nueva película.
+
+---
+
+## 🔍 Ejemplo en código:
+```javascript
+let peliculas = [
+    { idPelicula: 1, titulo: "Avatar" },
+    { idPelicula: 2, titulo: "Terminator 2" },
+    { idPelicula: 3, titulo: "Silent Hill" },
+];
+
+let nuevaPelicula = { idPelicula: 20, titulo: "Scarface" };
+
+// Función para agregar una película sin modificar el array original
+const agregarPelicula = () => {
+    let todas = [...peliculas, nuevaPelicula]; // Se crea un nuevo array combinando ambos
+    console.log(todas);
+};
+
+agregarPelicula();

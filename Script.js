@@ -4,7 +4,10 @@ let peliculas = [
     { idPelicula: 3, titulo: "Silent Hill" },
 ]
 
-const mostrarTodas = (peliculas) => {
-    peliculas.map((p) => console.log(p.idPelicula, p.titulo))
-}
-mostrarTodas(peliculas)
+let nuevaPelicula = { idPelicula: 20, titulo: "Scarface" };
+const agregarPelicula = () => {
+    let todas = [...peliculas, nuevaPelicula];
+    console.log(todas);
+};
+
+agregarPelicula();
