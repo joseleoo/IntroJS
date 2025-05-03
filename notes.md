@@ -360,4 +360,173 @@ const obtenerPeliculas = async () => {
     }
 };
 
-obtenerPeliculas();
+obtenerPeliculas();```
+Sure! Here's a **teacher-style explanation** in **Markdown format** to help you understand `async` and `await` using the code you shared:
+
+---
+
+## 🧠 **Understanding `async` and `await` in JavaScript** 🚀
+
+---
+
+### 📄 **Your Code Overview**
+
+**JavaScript file (`Script.js`):**
+
+```javascript
+const getPhotos = async () => {
+   await fetch('https://jsonplaceholder.typicode.com/photos')
+        .then((response) => response.json())
+        .then((data) => data.map((p) => console.log(p.id, p.title)));
+
+   document.write("<H2>Ready</H2>");
+};
+
+getPhotos();
+```
+
+**HTML file:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro</title>
+    <script type="module" src="Script.js"></script>
+</head>
+<body>
+    <h1>Introduccion a ES6</h1>
+    <h2>loading...</h2>
+</body>
+</html>
+```
+
+---
+
+## ⏳ **What is `async`?**
+
+* The keyword `async` is used to declare a function that **returns a Promise**.
+* Inside an `async` function, you can use the `await` keyword.
+
+### ✅ Benefits:
+
+* Makes asynchronous code easier to read and write.
+* Avoids deeply nested `.then()` chains (callback hell).
+
+---
+
+## 🕓 **What is `await`?**
+
+* `await` pauses the **execution of the `async` function** until the **Promise resolves**.
+* You can only use `await` inside an `async` function.
+
+---
+
+## 🔍 **How It Works in Your Code**
+
+### Step-by-Step Breakdown:
+
+```javascript
+const getPhotos = async () => {
+```
+
+* This defines an **asynchronous function** called `getPhotos`.
+
+---
+
+```javascript
+   await fetch('https://jsonplaceholder.typicode.com/photos')
+        .then((response) => response.json())
+        .then((data) => data.map((p) => console.log(p.id, p.title)));
+```
+
+* `fetch(...)` makes a request to a fake API that returns photo data.
+* The `await` **pauses the function** until the request is complete.
+* Then:
+
+  * `.then(response => response.json())`: Converts the response into JSON.
+  * `.then(data => ...)`: Iterates over the data.
+  * `.map(...)`: Prints the `id` and `title` of each photo to the console.
+
+> ⚠️ **Important Note**: Here you're using both `await` and `.then()`. This works, but it's better to stick to one style for clarity.
+
+✅ **Better version** (fully using `await`):
+
+```javascript
+const getPhotos = async () => {
+   const response = await fetch('https://jsonplaceholder.typicode.com/photos');
+   const data = await response.json();
+   data.map((p) => console.log(p.id, p.title));
+
+   document.write("<H2>Ready</H2>");
+};
+```
+
+---
+
+```javascript
+document.write("<H2>Ready</H2>");
+```
+
+* This runs **after** all photos are logged.
+* It **writes “Ready”** on the webpage, showing the task is complete.
+
+---
+
+## ⏱️ **Execution Order**
+
+1. Page loads and shows `<h2>loading...</h2>`.
+2. `getPhotos()` runs and fetches data asynchronously.
+3. Once the data is ready:
+
+   * The console prints many lines like: `1 Photo title`, `2 Another title`, ...
+   * Then the page updates and displays `Ready`.
+
+---
+
+## 💡 **Summary Table**
+
+| Concept            | Meaning                                                   |
+| ------------------ | --------------------------------------------------------- |
+| `async`            | Declares a function that handles asynchronous operations  |
+| `await`            | Waits for a Promise to resolve inside an `async` function |
+| `fetch()`          | Performs an HTTP request and returns a Promise            |
+| `then()`           | Handles resolved Promises (used here after `await`)       |
+| `document.write()` | Outputs to the webpage (not recommended in production)    |
+
+---
+
+## 🧪 **When Should You Use `async/await`?**
+
+Use `async/await` when:
+
+* You want cleaner, readable asynchronous code.
+* You are working with Promises (like fetch, API calls).
+* You want to avoid chaining many `.then()` calls.
+
+---
+
+## 🧼 **Clean Version (Best Practice)**
+
+```javascript
+const getPhotos = async () => {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/photos');
+        const data = await response.json();
+        data.forEach((p) => console.log(p.id, p.title));
+        document.write("<H2>Ready</H2>");
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+};
+
+getPhotos();
+```
+
+✅ Added `try...catch` to handle errors gracefully
+✅ Used `forEach` instead of `map` because we’re not returning a new array — just logging values
+
+---
+
